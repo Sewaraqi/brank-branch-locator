@@ -50,6 +50,9 @@ export default function Closest() {
       const selectedBranches = branches.filter(
         (b) => b.Bank_Name === selectedBank
       );
+      console.log(branches);
+      console.log(location);
+      console.log(selectedBranches);
       const withDistance = selectedBranches.map((b) => {
         const lon = parseFloat(b.Y_Coordinate);
         const lat = parseFloat(b.X_Coordinate);
@@ -61,8 +64,11 @@ export default function Closest() {
         );
         return { ...b, distance };
       });
-
-      const sorted = withDistance.sort((a, b) => a.distance - b.distance);
+      const validDistances = withDistance.filter(
+        (b) => typeof b.distance === "number" && !isNaN(b.distance)
+      );
+      const sorted = validDistances.sort((a, b) => a.distance - b.distance);
+      console.log("sorted", sorted);
       setNearestBranches(sorted.slice(0, 3));
     }
   }, [location, selectedBank, branches]);
@@ -118,7 +124,7 @@ export default function Closest() {
           </Stack>
           <TextField
             select
-            sx={{ width: "50%" , backgroundColor: "background.paper",}}
+            sx={{ width: "50%", backgroundColor: "background.paper" }}
             variant="outlined"
             value={selectedBank}
             onChange={(e) => setSelectedBank(e.target.value)}
@@ -168,7 +174,8 @@ export default function Closest() {
                   p: 2,
                   backgroundColor: "background.paper",
                   borderRadius: 2,
-                }}>
+                }}
+              >
                 <BranchInfo branch={branch} />
               </Card>
             ))}
