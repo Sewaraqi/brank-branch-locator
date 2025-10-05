@@ -2,7 +2,7 @@ import {useState} from 'react'
 import { useTranslation } from 'react-i18next'
 import { IconButton, Menu, MenuItem } from "@mui/material";
 import LanguageIcon from "@mui/icons-material/Language";
-import { useTheme } from "@mui/material/styles";
+
 /*
 explantion for the developer What happens inside i18next:
 It updates i18n.language → "en".
