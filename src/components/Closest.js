@@ -50,9 +50,6 @@ export default function Closest() {
       const selectedBranches = branches.filter(
         (b) => b.Bank_Name === selectedBank
       );
-      console.log(branches);
-      console.log(location);
-      console.log(selectedBranches);
       const withDistance = selectedBranches.map((b) => {
         const lon = parseFloat(b.Y_Coordinate);
         const lat = parseFloat(b.X_Coordinate);
@@ -68,7 +65,6 @@ export default function Closest() {
         (b) => typeof b.distance === "number" && !isNaN(b.distance)
       );
       const sorted = validDistances.sort((a, b) => a.distance - b.distance);
-      console.log("sorted", sorted);
       setNearestBranches(sorted.slice(0, 3));
     }
   }, [location, selectedBank, branches]);
