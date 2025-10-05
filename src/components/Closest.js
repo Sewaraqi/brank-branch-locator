@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { fetchBranchesByCity } from "../api/bankApi";
-import { isHebrew } from "../utils/locale";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import LocationPinIcon from "@mui/icons-material/LocationPin";
 import UseGeoLocation from "../location/UseGeoLocation";

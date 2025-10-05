@@ -20,7 +20,6 @@ The React virtual DOM updates only the changed text nodes efficiently.
 export default function LanguageSwitcher() {
     const {i18n } = useTranslation();
     const [anchorEl, setAnchorEl] = useState(null);
-    const theme = useTheme();
     const open = Boolean(anchorEl);
 
     const handleClick = (event) => {

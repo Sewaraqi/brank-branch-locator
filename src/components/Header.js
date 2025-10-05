@@ -12,7 +12,7 @@ import { ROUTES } from "../utils/routes";
 import { useTheme } from "@mui/material/styles";
 
 export default function Header() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const theme = useTheme();
   const navButtons = [
   { label: t("nav_search"), to: ROUTES.SEARCH_BY_CITY },

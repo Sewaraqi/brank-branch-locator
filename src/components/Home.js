@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { fetchBranchesByCity } from "../api/bankApi";
-import { isHebrew } from "../utils/locale";
 import Divider from "@mui/material/Divider";
 
 import {
